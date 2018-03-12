@@ -1,0 +1,41 @@
+/* Header */
+.navbar {
+  background: #59bfe0;
+
+  a {
+    color: #fff;
+  }
+
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 25px;
+
+    i {
+      color: #3d7587;
+      font-size: 18px;
+      vertical-align: bottom;
+    }
+  }
+
+  ul.navbar-nav {
+    li {
+      a {
+        font-weight: bold;
+
+        &:hover {
+          background: none;
+          color: #3d7587;
+        }
+      }
+    }
+  }
+}
+
+/* Footer */
+footer {
+  background: #eee;
+  padding: 2em 0;
+  font-weight: bold;
+  margin-top: 50px;
+  text-align: center;
+}
