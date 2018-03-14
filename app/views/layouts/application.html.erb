@@ -10,6 +10,13 @@
 
     <body class="<%= yield(:body_class) %>">
         <%= render 'layouts/header' %>
+
+        <div class="container container-small">
+            <% flash.each do |message_type, message| %>
+              <div class="alert alert-dismissable alert-<%= message_type %>"><%= message %></div>
+            <% end %>
+        </div>
+
         <%= yield %>
         <%= render 'layouts/footer' %>
     </body>

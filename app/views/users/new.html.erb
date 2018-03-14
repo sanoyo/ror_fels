@@ -1,0 +1,49 @@
+<div class="form">
+    <header class="text-center">
+        <h1>Signup</h1>
+        <p>Join us for free.</p>
+    </header>
+
+    <div class="row">
+        <div class="col-md-4 col-center">
+            <%= form_for(@user) do |f| %>
+                <div class="form-group">
+                    <%= f.label :name %>
+                    <%= f.text_field :name, class: 'form-control' %>
+                    <% if @user.errors.messages[:name].any? %>
+                        <small class="text-danger"><%= :name.capitalize %> <%= @user.errors.messages[:name].first %></small>
+                    <% end %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :email %>
+                    <%= f.email_field :email, class: 'form-control' %>
+                    <% if @user.errors.messages[:email].any? %>
+                        <small class="text-danger"><%= :email.capitalize %> <%= @user.errors.messages[:email].first %></small>
+                    <% end %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :password %>
+                    <%= f.password_field :password, class: 'form-control' %>
+                    <% if @user.errors.messages[:password].any? %>
+                        <small class="text-danger"><%= :password.capitalize %> <%= @user.errors.messages[:password].first %></small>
+                    <% end %>
+                </div>
+
+                <div class="form-group">
+                    <%= f.label :password_confirmation, "Confirmation" %>
+                    <%= f.password_field :password_confirmation, class: 'form-control' %>
+                    <% if @user.errors.messages[:password_confirmation].any? %>
+                        <small class="text-danger"><%= :password_confirmation.capitalize %> <%= @user.errors.messages[:password_confirmation].first %></small>
+                    <% end %>
+                </div>
+                
+                <div class="text-center">
+                    <%= f.submit "Create my account", class: "btn btn-primary" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
