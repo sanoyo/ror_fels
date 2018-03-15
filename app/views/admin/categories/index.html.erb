@@ -1,0 +1,38 @@
+<div class="container container-small">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-sm-6">
+                    <span>Admin | Categories</span>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <%= link_to "Add category", new_admin_category_path, class: "btn btn-sm btn-success" %>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+                <% if @categories.any? %>
+                    <% @categories.each do |category| %>
+                        <tr>
+                            <td><%= category.title %></td>
+                            <td><%= category.description %></td>
+                            <td>
+                                <%= link_to "Edit", edit_admin_category_path(category.id), class: "btn btn-sm btn-warning" %>
+
+                                <%= link_to "Remove", admin_category_path(category), method: :delete,
+                                    data: { confirm: "Remove category: #{category.title} ?" },
+                                    class: "btn btn-sm btn-default" %>
+                            </td>
+                        </tr>
+                    <% end %>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>

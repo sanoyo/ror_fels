@@ -1,0 +1,29 @@
+<%= form_for([:admin, @category]) do |f| %>
+    <div class="row">
+        <div class="col-sm-8 col-center">
+            <% if @category.errors.any? %>
+                <div id="error_explanation">
+                    <div class="alert alert-danger">
+                        <ul>
+                            <% @category.errors.full_messages.each do |msg| %>
+                                <li><%= msg %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
+            <% end %>
+
+            <div class="form-group">
+                <%= f.label :title %>
+                <%= f.text_field :title, class: 'form-control' %>
+
+                <%= f.label :description %>
+                <%= f.text_area :description, class: 'form-control' %>
+            </div>
+
+            <div class="text-center">
+                <%= f.submit "Save Category", class: 'btn btn-success' %>
+            </div>
+        </div>
+    </div>
+<% end %>

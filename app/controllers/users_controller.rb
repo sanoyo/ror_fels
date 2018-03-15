@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user,  only: [:show]
+  before_action :require_login,  only: [:show, :dashboard]
 
   def new
     @user = User.new
@@ -25,6 +25,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def dashboard
   end
 
   private

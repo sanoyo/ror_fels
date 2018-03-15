@@ -16,6 +16,14 @@
       vertical-align: bottom;
     }
   }
+  .nav {
+    .open {
+      > a {
+          background: none;
+          color: #3d7587;
+      }
+    }
+  }
 
   ul.navbar-nav {
     li {
