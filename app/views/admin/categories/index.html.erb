@@ -10,29 +10,27 @@
                 </div>
             </div>
         </div>
-        <div class="panel-body">
-            <table class="table">
-                <tr>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Action</th>
-                </tr>
-                <% if @categories.any? %>
-                    <% @categories.each do |category| %>
-                        <tr>
-                            <td><%= link_to "#{category.title}", admin_category_words_path(category) %></td>
-                            <td><%= category.description %></td>
-                            <td>
-                                <%= link_to "Edit", edit_admin_category_path(category.id), class: "btn btn-sm btn-warning" %>
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            <% if @categories.any? %>
+                <% @categories.each do |category| %>
+                    <tr>
+                        <td><%= link_to "#{category.title}", admin_category_words_path(category) %></td>
+                        <td><%= category.description %></td>
+                        <td>
+                            <%= link_to "Edit", edit_admin_category_path(category.id), class: "btn btn-sm btn-warning" %>
 
-                                <%= link_to "Remove", admin_category_path(category), method: :delete,
-                                    data: { confirm: "Remove category: #{category.title}?" },
-                                    class: "btn btn-sm btn-default" %>
-                            </td>
-                        </tr>
-                    <% end %>
+                            <%= link_to "Remove", admin_category_path(category), method: :delete,
+                                data: { confirm: "Remove category: #{category.title}?" },
+                                class: "btn btn-sm btn-default" %>
+                        </td>
+                    </tr>
                 <% end %>
-            </table>
-        </div>
+            <% end %>
+        </table>
     </div>
 </div>

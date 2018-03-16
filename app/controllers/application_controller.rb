@@ -9,4 +9,11 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+
+  def require_admin
+    unless current_user.admin?
+      flash[:danger] = "Invalid url."
+      redirect_to root_url
+    end
+  end
 end

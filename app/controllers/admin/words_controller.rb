@@ -1,4 +1,5 @@
 class Admin::WordsController < ApplicationController
+  before_action :require_admin
   before_action :set_word, only: [:edit, :update, :destroy]
   before_action :set_category, only: [:index, :new, :create, :edit]
 
