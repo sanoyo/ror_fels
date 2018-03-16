@@ -1,0 +1,40 @@
+<%= form_for([:admin, @category, @word]) do |f| %>
+    <div class="row">
+        <div class="col-sm-8 col-center">
+            <%= render 'admin/shared/errors', object: f.object %>
+
+            <div class="form-group row">
+                <div class="col-sm-3">
+                    <%= f.label :content, "Word" %>
+                </div>
+
+                <div class="col-sm-7">    
+                    <%= f.text_field :content, class: 'form-control' %>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-3"><%= label_tag "Choices" %></div>
+                <div class="col-sm-9">
+                    <%= f.fields_for :word_answers do |answer| %>
+                        <div class="form-group row">
+                            <div class="col-sm-9">
+                                <%= answer.text_field :content, class: 'form-control' %>
+                            </div>
+                            <div class="col-sm-3">
+                                <%= answer.label :is_correct do %>
+                                    Correct
+                                    <%= answer.check_box :is_correct %>
+                                <% end %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <%= f.submit "Save Word", class: 'btn btn-success' %>
+            </div>
+        </div>
+    </div>
+<% end %>

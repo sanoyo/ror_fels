@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
         log_in(user)
-        redirect_back_or dashboard
+        redirect_back_or dashboard_path
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'

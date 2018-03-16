@@ -1,5 +1,5 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_category, only: [:edit, :update, :destroy]
 
   def index
     @categories = Category.all
@@ -46,7 +46,7 @@ class Admin::CategoriesController < ApplicationController
       params.require(:category).permit(:title, :description)
     end
 
-    def set_user
+    def set_category
       @category = Category.find(params[:id])
     end
 end

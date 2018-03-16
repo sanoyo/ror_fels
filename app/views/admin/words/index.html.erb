@@ -1,0 +1,42 @@
+<div class="container container-small">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-sm-6">
+                    <span>Admin | <%= @category.title %> - Words</span>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <%= link_to "Add word", new_admin_category_word_path(@category), class: "btn btn-sm btn-success" %>
+                    <%= link_to "BacK", admin_categories_path, class: "btn btn-sm" %>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <h2><%= @category.title %></h2>
+            <p><%= @category.description %></p>
+        </div>
+        <% if @words.any? %>
+            <table class="table">
+                <tr>
+                    <th>Words</th>
+                    <th>Answer</th>
+                    <th>Action</th>
+                </tr>
+                <% @words.each do |word| %>
+                    <tr>
+                        <td><%= word.content %></td>
+                        <td><%= word.correct_answer %></td>
+                        <td>
+                            <%= link_to "Edit", edit_admin_category_word_path(word.category, word), class: "btn btn-sm btn-warning" %>
+
+                            <%= link_to "Remove", admin_category_word_path(word.category, word), method: :delete,
+                                data: { confirm: "Remove word: #{word.content}?" },
+                                class: "btn btn-sm btn-default" %>
+                        </td>
+                    </tr>
+                <% end %>
+            </table>
+        <% end %>
+    </div>
+</div>

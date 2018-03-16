@@ -1,0 +1,23 @@
+<div class="container container-small">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-sm-6">
+                    <span>Admin | <%= @category.title %> | Words</span>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <%= link_to "Back", admin_category_words_path, class: "btn btn-sm" %>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <%= render 'admin/words/form' %>
+        </div>
+    </div>
+</div>
+<script>
+    $(".edit_word input:checkbox").click(function(){
+        $(".edit_word input:checkbox").prop("checked",false);
+        $(this).prop("checked",true);
+    });
+</script>
