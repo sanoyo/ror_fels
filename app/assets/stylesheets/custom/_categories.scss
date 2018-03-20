@@ -1,0 +1,30 @@
+.categories {
+  h1 {
+    margin-bottom: 30px;
+  }
+  
+  section {
+    background: #eee;
+    padding: 10px 30px 20px;
+    margin-bottom: 20px;
+
+    .details {
+      h2 {
+        color: #aaa;
+      }
+
+      p {
+        word-wrap: break-word;
+      }
+    }
+
+    .play {
+      vertical-align: middle;
+
+      i {
+        color: #3d7587;
+        margin-right: 5px;
+      }
+    }
+  }
+}

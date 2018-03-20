@@ -1,0 +1,29 @@
+<%= provide(:body_class, "categories") %>
+
+<div class="container container-small">
+    <h1>Categories</h1>
+    
+    <% if @categories.any? %>
+        <div class="row">
+            <% @categories.each do |category| %>
+                <div class="col-sm-6">
+                    <section class="col-sm-12">
+                        <div class="details">
+                            <h2><%= category.title %></h2>
+                            <p><%= category.description %></p>
+                        </div>
+                        <div class="play text-right">
+                            <%= link_to "#" , class: "btn btn-primary" do %>
+                            <i class="glyphicon glyphicon-play"></i>
+                            Learn
+                            <% end %>
+                        </div>
+                    </section>
+                </div>
+            <% end %>
+        </div>
+        <div class="text-center">
+            <%= will_paginate @categories, previous_label: '<i class="glyphicon glyphicon-menu-left"></i>', next_label: '<i class="glyphicon glyphicon-menu-right"></i>' %>
+        </div>
+    <% end %>
+</div>

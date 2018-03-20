@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+30.times do |n|
+  Category.create(
+    title: "Category #{n}",
+    description: (0...50).map { ('a'..'z').to_a[rand(26)] }.join
+  )
+end
