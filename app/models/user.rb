@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :lessons
+  has_many :categories, through: :lessons
+
   before_save :downcase_email
 
   validates :name, presence: true, length: {maximum: 50}
@@ -12,6 +15,10 @@ class User < ApplicationRecord
   validates :password, presence: true, 
                        length: {minimum: 6},
                        allow_nil: true
+
+  def lesson(category)
+    lesson = self.lessons.where(category: category).first
+  end
 
   private
     def downcase_email

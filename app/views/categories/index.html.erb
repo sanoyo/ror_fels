@@ -1,21 +1,32 @@
 <%= provide(:body_class, "categories") %>
 
 <div class="container container-small">
-    <h1>Categories</h1>
-    
+    <h1>Lessons</h1>
+
     <% if @categories.any? %>
         <div class="row">
             <% @categories.each do |category| %>
                 <div class="col-sm-6">
                     <section class="col-sm-12">
                         <div class="details">
-                            <h2><%= category.title %></h2>
+                            <h2>
+                                <%= category.title %>
+                                <% if current_user.lesson(category) %>
+                                    <em><small class="pull-right" style="margin-top: 5px;">Learned <%= current_user.lesson(category).correct_answers.count %> of <%= current_user.lesson(category).lesson_words.count %></small></em>
+                                <% end %>
+                            </h2>
                             <p><%= category.description %></p>
                         </div>
                         <div class="play text-right">
-                            <%= link_to "#" , class: "btn btn-primary" do %>
-                            <i class="glyphicon glyphicon-play"></i>
-                            Learn
+                            <% if current_user.lesson(category) %>
+                                <div class="result">
+                                    <%= link_to current_user.lesson(category) , class: "btn btn-default" do %>
+                                        <i class="glyphicon glyphicon-record"></i>
+                                        Show result
+                                    <% end %>
+                                </div>
+                            <% else %>
+                                <%= render 'lesson_form' , category: category %>
                             <% end %>
                         </div>
                     </section>

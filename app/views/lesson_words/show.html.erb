@@ -1,0 +1,29 @@
+<% provide(:body_class, "lessons word") %>
+
+<div class="container container-small">
+    <div class="row">
+        <div class="col-sm-8 col-center">
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    <h1><%= @lesson.category.title %></h1>
+                </div>
+                <div class="col-sm-6 text-right">
+                    <h2><%= @lesson.lesson_words.index(@lesson_word) + 1 %> of <%= @lesson.lesson_words.count %></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-container">
+                    <div class="col-sm-10 col-center text-center">
+                        <h2><%= @lesson_word.word.content %></h2>
+                        <ul class="list-unstyled text-center">
+                            <% @lesson_word.word.word_answers.each do |option| %>
+                                <li><%= link_to option.content, lesson_lesson_word_path(@lesson, @lesson_word, answer_id: option), method: :patch, class: 'list-group-item' %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

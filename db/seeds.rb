@@ -6,9 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.create!(name: 'Inah San Juan', email: 'inahsanjuan@gmail.com', password: 'password', admin: true)
+
 30.times do |n|
   Category.create(
-    title: "Category #{n}",
-    description: (0...50).map { ('a'..'z').to_a[rand(26)] }.join
+    title: Faker::Commerce.department,
+    description: Faker::Lorem.sentence(3)
   )
 end
+
+categories = Category.take(5)
+

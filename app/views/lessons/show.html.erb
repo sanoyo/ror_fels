@@ -1,0 +1,40 @@
+<% provide(:body_class, "lessons") %>
+
+<div class="container container-small">
+    <div class="row">
+        <div class="col-sm-8 col-center">
+            <div class="row" style="margin-bottom: 20px;">
+                <div class="col-sm-6">
+                    <h1><%= @lesson.category.title %></h1>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h2>Result: <%= @lesson.correct_answers.count %> of <%= @lesson.lesson_words.count %></h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <table class="table results">
+                    <tr>
+                        <th>Word</th>
+                        <th>Correct Answer</th>
+                        <th></th>
+                    </tr>
+
+                    <% @lesson.lesson_words.each do |lesson_word| %>
+                        <tr>
+                            <td><%= lesson_word.word.content %></td>
+                            <td><%= lesson_word.word.correct_answer %></td>
+                            <td class="text-center">
+                                <% if lesson_word.word_answer.is_correct %>
+                                    <i class="correct glyphicon glyphicon-record"></i>
+                                <% else %>
+                                    <i class="wrong glyphicon glyphicon-remove"></i>
+                                <% end %>
+                            </td>
+                        </tr>
+                    <% end %>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

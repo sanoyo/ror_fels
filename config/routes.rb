@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'static_pages#home'
 
   resources :users, except: [:new]
@@ -8,6 +7,10 @@ Rails.application.routes.draw do
   	resources :categories do
       resources :words
     end
+  end
+
+  resources :lessons, only: [:create, :show, :update] do
+    resources :lesson_words, only: [:show, :update], path: 'words'
   end
 
   get    '/categories', to: 'categories#index'

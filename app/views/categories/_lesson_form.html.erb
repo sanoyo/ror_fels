@@ -1,0 +1,8 @@
+<%= form_tag(current_user.lessons.build) do %>
+    <%= hidden_field_tag :category_id, category.id %>
+
+    <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+        <i class="glyphicon glyphicon-play"></i>
+        Learn
+    <% end %>
+<% end %>
