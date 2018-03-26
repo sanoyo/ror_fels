@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :require_login,  only: [:show, :dashboard]
+  before_action :require_login,  except: [:new, :create]
+
+  def index
+    @users = User.paginate(page: params[:page], per_page: 8)
+  end
 
   def new
     @user = User.new

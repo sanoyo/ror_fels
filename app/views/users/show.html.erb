@@ -1,4 +1,41 @@
+<%= provide(:body_class, "user") %>
+
 <div class="container container-small">
-    <h1><%= @user.name %></h1>
-    <p>Find me in app/views/users/show.html.erb</p>
+    <div class="col-sm-3">
+        <div class="panel">
+            <div class="panel-body">
+                <h2><%= @user.name %></h2>
+
+                <div class="btn btn-sm btn-primary">
+                    Follow
+                </div>
+
+                <hr>
+
+                <div class="media">
+                    <div class="media-body">
+                        <h6 class="media-heading">Words</h6>
+                        <small><%= @user.lessons.collect(&:word_answers).count %></small>
+                    </div>
+                </div>
+
+                <div class="media">
+                    <div class="media-body">
+                        <h6 class="media-heading">Followers</h6>
+                        <small></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-9">
+        <div class="panel">
+            <div class="panel-body">
+                <h2>Activity feed</h2>
+
+                <div class="well"></div>
+            </div>
+        </div>
+    </div>
 </div>

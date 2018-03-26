@@ -1,0 +1,35 @@
+<%= provide(:body_class, "users") %>
+
+<div class="container container-small">
+    <h1>Users</h1>
+
+    <% if @users.any? %>
+        <div class="row object-list">
+            <% @users.each do |user| %>
+                <div class="col-sm-6">
+                    <section>
+                        <div class="details">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="avatar">
+                                        <i class="glyphicon glyphicon-user"></i>
+                                    </div>
+                                </div>
+                                <div class="media-body media-middle">
+                                    <div class="media-heading">
+                                        <strong><%= link_to user.name, user_path(user) %></strong>
+
+                                        <div class="btn btn-sm btn-default pull-right">Follow</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            <% end %>
+        </div>
+        <div class="text-center">
+            <%= will_paginate @users, previous_label: '<i class="glyphicon glyphicon-menu-left"></i>', next_label: '<i class="glyphicon glyphicon-menu-right"></i>' %>
+        </div>
+    <% end %>
+</div>

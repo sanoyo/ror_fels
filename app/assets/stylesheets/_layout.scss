@@ -39,6 +39,20 @@
   }
 }
 
+/* Object list */
+.object-list {
+  section {
+    background: #eee;
+    margin-bottom: 20px;
+    padding: 20px;
+
+    h2 {
+      color: #aaa;
+      letter-spacing: 0;
+    }
+  }
+}
+
 /* Pagination */
 .pagination {
   margin-top: 60px;

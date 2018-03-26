@@ -17,7 +17,7 @@ class User < ApplicationRecord
                        allow_nil: true
 
   def lesson(category)
-    lesson = self.lessons.where(category: category).first
+    lesson = self.lessons.find_by(category: category)
   end
 
   private
